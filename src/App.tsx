@@ -1,4 +1,5 @@
 import './App.css'
+import BookList from './Components/BookList'
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <>
       <h1>Favorite Books</h1>
       <p>A thing to list your favorite books!</p>
+      <BookList/>
         
     </>
   )
