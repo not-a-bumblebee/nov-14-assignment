@@ -1,4 +1,7 @@
-export default function BookList() {
+interface BookListProps{
+    library:string[]
+}
+export default function BookList({library}:BookListProps) {
 
     const Book: React.FC<{ bookName: string }> = ({bookName}) =>{
         return (
@@ -11,9 +14,9 @@ export default function BookList() {
 
     return(
         <>
-        <Book bookName="Harry Potter 1"/>
-        <Book bookName="Harry Potter 2"/>
-        <Book bookName="Harry Potter 3"/>
+        {library.map(x=>{
+            return(<Book bookName={x} />)
+        })}
         </>
     )
 }
