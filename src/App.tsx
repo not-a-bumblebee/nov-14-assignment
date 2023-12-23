@@ -4,16 +4,16 @@ import BookList from './Components/BookList'
 import AddBookForm from './Components/AddBookForm'
 
 function App() {
-  const [books, setBooks] = useState( ["Twilight", "Twilight: new moon", "Twilight: eclipse"])
+  const [books, setBooks] = useState<string[]>([])
 
 
   return (
     <>
       <h1>Favorite Books</h1>
       <p>A thing to list your favorite books!</p>
-      <AddBookForm/>
-      <BookList library={books}/>
-        
+      <AddBookForm setBooks={setBooks} books={books} />
+      <BookList library={books} />
+
     </>
   )
 }
