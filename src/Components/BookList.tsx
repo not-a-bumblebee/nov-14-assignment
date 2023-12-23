@@ -15,7 +15,7 @@ export default function BookList({library}:BookListProps) {
     return(
         <>
         {library.map(x=>{
-            return(<Book bookName={x} />)
+            return(<Book bookName={x} key={x} />)
         })}
         </>
     )
