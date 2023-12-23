@@ -6,13 +6,15 @@ import AddBookForm from './Components/AddBookForm'
 function App() {
   const [books, setBooks] = useState<string[]>([])
 
+  console.log(books);
+  
 
   return (
     <>
       <h1>Favorite Books</h1>
       <p>A thing to list your favorite books!</p>
       <AddBookForm setBooks={setBooks} books={books} />
-      <BookList library={books} />
+      <BookList library={books} setBooks={setBooks}/>
 
     </>
   )

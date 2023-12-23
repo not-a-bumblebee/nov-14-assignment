@@ -1,21 +1,30 @@
 interface BookListProps{
-    library:string[]
+    library:string[],
+    setBooks:React.Dispatch<React.SetStateAction<string[]>>
 }
-export default function BookList({library}:BookListProps) {
+export default function BookList({library,setBooks}:BookListProps) {
 
-    const Book: React.FC<{ bookName: string }> = ({bookName}) =>{
+    const deleteBook = (index:number)=>{
+        setBooks(x=>{
+            let update = [...x]
+            update.splice(index,1);
+            return [...update]
+        })
+    }
+
+    const Book: React.FC<{ bookName: string,index:number }> = ({bookName,index}) =>{
         return (
             <div className="book">
                 <p>{bookName}</p>
-                <a className="delete">X</a>
+                <a className="delete" onClick={()=>deleteBook(index)}>X</a>
             </div>
         )
     }
 
     return(
         <>
-        {library.map(x=>{
-            return(<Book bookName={x} key={x} />)
+        {library.map((x,i)=>{
+            return(<Book bookName={x} key={x} index={i} />)
         })}
         </>
     )
